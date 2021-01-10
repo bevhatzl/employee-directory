@@ -16,7 +16,10 @@ class Search extends Component {
   // When the component mounts, get a list of all available employees and update this.state.employees
   componentDidMount() {
     API.getAllEmployees()
+    // .then(res => console.log(res.data.results))
       .then(res => this.setState({ employees: res.data.results }))
+      .then(console.log(this.state.employees))
+      .then(console.log(this.state.results))
       .catch(err => console.log(err));
   }
 
@@ -24,17 +27,17 @@ class Search extends Component {
     this.setState({ search: event.target.value });
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    API.getAllEmployees(this.state.search)
-      .then(res => {
-        if (res.data.results === "error") {
-          throw new Error(res.data.message);
-        }
-        this.setState({ results: res.data.results, error: "" });
-      })
-      .catch(err => this.setState({ error: err.message }));
-  };
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   API.getAllEmployees(this.state.search)
+  //     .then(res => {
+  //       if (res.data.results === "error") {
+  //         throw new Error(res.data.message);
+  //       }
+  //       this.setState({ results: res.data.results, error: "" });
+  //     })
+  //     .catch(err => this.setState({ error: err.message }));
+  // };
 
   render() {
     return (
@@ -51,7 +54,7 @@ class Search extends Component {
             handleInputChange={this.handleInputChange}
             employees={this.state.employees}
           />
-          <SearchResults results={this.state.results} />
+          <SearchResults results={this.state.employees} />
         </Container>
       </div>
     );
