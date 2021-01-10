@@ -19,8 +19,6 @@ class Search extends Component {
     API.getAllEmployees()
     // .then(res => console.log(res.data.results))
       .then(res => this.setState({ employees: res.data.results }))
-      .then(console.log(this.state.employees))
-      .then(console.log(this.state.results))
       .catch(err => console.log(err));
   }
 
