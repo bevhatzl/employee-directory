@@ -1,5 +1,6 @@
 # Employee Directory
 This is a React app which fetches employee data from an api to display, search and sort by employee name.
+The link to the deployed site is here: https://bevhatzl.github.io/employee-directory/
 
 # Table of Contents
 * [Instructions](#instructions)
