@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import Container from "../Container/index";
 import SearchForm from "../SearchForm/index";
 import SearchResults from "../SearchResults/index";
+import TableHeader from "../TableHeader/index";
 import Alert from "../Alert/index";
 
 class Search extends Component {
@@ -54,7 +55,10 @@ class Search extends Component {
             handleInputChange={this.handleInputChange}
             employees={this.state.employees}
           />
-          <SearchResults results={this.state.employees} />
+          <table>
+            <TableHeader />
+            <SearchResults results={this.state.employees} />
+          </table>
         </Container>
       </div>
     );

@@ -3,17 +3,17 @@ import React from "react";
 
 function SearchResults(props) {
   return (
-    <ul className="list-group search-results">
+    <tbody>
       {props.results.map(result => (
-        <li key={result.email} className="list-group-item">
-          <img alt="Employee photo" src={result.picture.thumbnail} className="img-fluid" />
-          <p>{result.name.first + " " + result.name.last}</p>
-          <p>{result.phone}</p>
-          <p>{result.email}</p>
-          <p>{result.dob.date}</p>
-        </li>
+        <tr key={result.email} className="list-group-item">
+          <td><img alt="Employee photo" src={result.picture.thumbnail} className="img-fluid" /></td>
+          <td>{result.name.first + " " + result.name.last}</td>
+          <td>{result.phone}</td>
+          <td>{result.email}</td>
+          <td>{result.dob.date}</td>
+        </tr>
       ))}
-    </ul>
+    </tbody>
   );
 }
 
