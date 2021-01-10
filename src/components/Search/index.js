@@ -19,25 +19,23 @@ class Search extends Component {
   // When the component mounts, get a list of all available employees and update this.state.employees
   componentDidMount() {
     API.getAllEmployees()
-      .then(res => this.setState({ employees: res.data.results }))
-      .then(this.setState({ filteredEmps: this.state.employees }))
+      .then(res => this.setState({ employees: res.data.results, filteredEmps: res.data.results }))
+      // .then(res => this.setState({ filteredEmps: res.data.results }))
       .catch(err => console.log(err));
   }
 
-  // handleInputChange = event => {
-  //   this.setState({ search: event.target.value });
-  // };
+  handleInputChange = event => {
+    const letterInput = (event.target.value).toLowerCase();
+    console.log(letterInput);
 
+    const allEmps = this.state.employees;
+    const filteredList = (allEmps.filter(item => 
+      (item.name.first + " " + item.name.last).includes(letterInput))
+    )
+    console.log(filteredList);
+    this.setState({ filteredEmps: filteredList });
+  }
 
-  // handleSearchChange = event => {
-  //   const filter = event.target.value;
-  //   const filteredList = this.state.employees.filter(item => {
-  //     let values = item.name.first.toLowerCase();
-  //     return values.indexOf(filter.toLowerCase()) !== -1;
-  //   });
-
-  //   this.state.filteredEmps = filteredList ;
-  // }
 
   handleSortChange = event => {
     if (this.state.sortOrder === "ascend") {
@@ -67,7 +65,7 @@ class Search extends Component {
           />
           <table>
             <TableHeader handleClick={this.handleSortChange} />
-            <SearchResults results={this.state.employees} order={this.state.sortOrder} />
+            <SearchResults results={this.state.filteredEmps} order={this.state.sortOrder} />
           </table>
         </Container>
       </div>
