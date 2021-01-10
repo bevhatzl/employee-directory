@@ -1,8 +1,8 @@
 import React from "react";
-// import "./style.css";
 
+// Responsible for the display of the table body
 function SearchResults(props) {
-
+  // Data is sorted alphabetically upon initial display and can be changed to reversed alphabetical order
   if (props.order === "ascend") {
     const res = props.results;
     const sortedArray = res.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
@@ -11,6 +11,7 @@ function SearchResults(props) {
     const sortedArray = res.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1)
   }
 
+  // To convert the date given from api to day/month/year
   function formatDate(date){
     const dateArray = date.split("-");
     const year = dateArray[0];
@@ -21,11 +22,12 @@ function SearchResults(props) {
     return formattedDate;
 }
 
+  // Display the table body with the employees data. Table row key is the email which must be unique.
   return (
-    <tbody>
+    <tbody class="table">
       {props.results.map(result => (
-        <tr key={result.email} className="list-group-item">
-          <td><img alt="Employee photo" src={result.picture.thumbnail} className="img-fluid" /></td>
+        <tr key={result.email}>
+          <td><img alt="Employee photo" src={result.picture.thumbnail} /></td>
           <td>{result.name.first + " " + result.name.last}</td>
           <td>{result.phone}</td>
           <td>{result.email}</td>

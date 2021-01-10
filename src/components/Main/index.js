@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "../Search/index";
-// import "./Main.css";
 
+// Main page body
 function Main (){
     return (
         <div>
