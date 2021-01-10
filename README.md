@@ -5,7 +5,7 @@ This is a React app which fetches employee data from an api to display, search a
 * [Instructions](#instructions)
 * [Built With](#built-with)
 * [Screenshots](#screenshots)
-* [Future Development](#future)
+* [Future Development](#future-development)
 * [Author](#author)
 
 ## Instructions
@@ -19,9 +19,9 @@ This is a React app which fetches employee data from an api to display, search a
 
 ## Screenshots
 
-![Screenshot of initial display with all employees sorted alphabetically](/public/images/image1.jpg)
+![Screenshot of initial display with all employees sorted alphabetically](./public/images/image1.JPG)
 
-![Screenshot of filtered employee data after text is input](/public/images/image2.jpg)
+![Screenshot of filtered employee data after text is input](./public/images/image2.JPG)
 
 ## Future Development
 <p>Future versions will be more responsive.</p>
