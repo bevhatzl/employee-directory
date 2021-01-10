@@ -6,7 +6,7 @@ function SearchResults(props) {
     <ul className="list-group search-results">
        item displays here
       {props.results.map(result => (
-        <li key={result} className="list-group-item">
+        <li key={result.email} className="list-group-item">
           item displays here
         </li>
       ))}
