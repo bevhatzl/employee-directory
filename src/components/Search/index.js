@@ -39,9 +39,14 @@ class Search extends Component {
   //   this.state.filteredEmps = filteredList ;
   // }
 
-  // handleSortChange = event => {
+  handleSortChange = event => {
+    if (this.state.sortOrder === "ascend") {
+      this.setState({ sortOrder: "descend" })
 
-  // }
+    } else {
+      this.setState({ sortOrder: "ascend" })
+    }
+  }
 
 
 
@@ -61,7 +66,7 @@ class Search extends Component {
             employees={this.state.employees}
           />
           <table>
-            <TableHeader />
+            <TableHeader handleClick={this.handleSortChange} />
             <SearchResults results={this.state.employees} order={this.state.sortOrder} />
           </table>
         </Container>
