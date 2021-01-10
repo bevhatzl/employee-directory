@@ -7,6 +7,9 @@ function SearchResults(props) {
     const res = props.results;
     const sortedArray = res.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
     console.log(sortedArray);
+  } else {
+    const res = props.results;
+    const sortedArray = res.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1)
   }
 
   function formatDate(date){
