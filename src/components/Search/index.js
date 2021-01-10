@@ -20,7 +20,6 @@ class Search extends Component {
   componentDidMount() {
     API.getAllEmployees()
       .then(res => this.setState({ employees: res.data.results, filteredEmps: res.data.results }))
-      // .then(res => this.setState({ filteredEmps: res.data.results }))
       .catch(err => console.log(err));
   }
 
