@@ -11,32 +11,39 @@ class Search extends Component {
     search: "",
     employees: [],
     results: [],
+    sortOrder: "ascend",
+    filteredEmps: [],
     error: ""
   };
 
   // When the component mounts, get a list of all available employees and update this.state.employees
   componentDidMount() {
     API.getAllEmployees()
-    // .then(res => console.log(res.data.results))
       .then(res => this.setState({ employees: res.data.results }))
+      .then(this.setState({ filteredEmps: this.state.employees }))
       .catch(err => console.log(err));
   }
 
-  handleInputChange = event => {
-    this.setState({ search: event.target.value });
-  };
-
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   API.getAllEmployees(this.state.search)
-  //     .then(res => {
-  //       if (res.data.results === "error") {
-  //         throw new Error(res.data.message);
-  //       }
-  //       this.setState({ results: res.data.results, error: "" });
-  //     })
-  //     .catch(err => this.setState({ error: err.message }));
+  // handleInputChange = event => {
+  //   this.setState({ search: event.target.value });
   // };
+
+
+  // handleSearchChange = event => {
+  //   const filter = event.target.value;
+  //   const filteredList = this.state.employees.filter(item => {
+  //     let values = item.name.first.toLowerCase();
+  //     return values.indexOf(filter.toLowerCase()) !== -1;
+  //   });
+
+  //   this.state.filteredEmps = filteredList ;
+  // }
+
+  // handleSortChange = event => {
+
+  // }
+
+
 
   render() {
     return (
@@ -55,7 +62,7 @@ class Search extends Component {
           />
           <table>
             <TableHeader />
-            <SearchResults results={this.state.employees} />
+            <SearchResults results={this.state.employees} order={this.state.sortOrder} />
           </table>
         </Container>
       </div>

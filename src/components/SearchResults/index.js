@@ -3,6 +3,12 @@ import React from "react";
 
 function SearchResults(props) {
 
+  if (props.order === "ascend") {
+    const res = props.results;
+    const sortedArray = res.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
+    console.log(sortedArray);
+  }
+
   function formatDate(date){
     const dateArray = date.split("-");
     const year = dateArray[0];
