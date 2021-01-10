@@ -28,9 +28,13 @@ class Search extends Component {
     console.log(letterInput);
 
     const allEmps = this.state.employees;
+    console.log(allEmps);
+    console.log(this.state.filteredEmps);
+
     const filteredList = (allEmps.filter(item => 
-      (item.name.first + " " + item.name.last).includes(letterInput))
+      ((item.name.first + " " + item.name.last).toLowerCase()).includes(letterInput))
     )
+
     console.log(filteredList);
     this.setState({ filteredEmps: filteredList });
   }
