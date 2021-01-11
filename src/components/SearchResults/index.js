@@ -24,7 +24,7 @@ function SearchResults(props) {
 
   // Display the table body with the employees data. Table row key is the email which must be unique.
   return (
-    <tbody class="table">
+    <tbody className="table">
       {props.results.map(result => (
         <tr key={result.email}>
           <td><img alt="Employee photo" src={result.picture.thumbnail} /></td>
